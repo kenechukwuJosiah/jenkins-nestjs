@@ -1,0 +1,44 @@
+pipeline {
+    agent {
+        node {
+            label 'nodejs-agent'
+        }
+    }
+
+    environment {
+        BUILD_DIR = 'dist'
+        OUTPUT_DIR = '/root/nestjs-jenkins'
+    }
+
+    stages {
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'pnpm install'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'pnpm run build'
+            }
+        }
+
+        stage('Deploy Build') {
+            steps {
+                script {
+                    sh "cp -r ${BUILD_DIR}/* ${OUTPUT_DIR}/"
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'App deployed successfully!'
+        }
+        failure {
+            echo 'Build or copy failed.'
+        }
+    }
+}
