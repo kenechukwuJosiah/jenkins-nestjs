@@ -28,7 +28,7 @@ pipeline {
         stage('Copy Files') {
             steps {
                 script {
-                    mkdir -p "${OUTPUT_DIR}"
+                    sh "mkdir -p ${OUTPUT_DIR}"
                     sh "cp -r ${BUILD_DIR}/* ${OUTPUT_DIR}/"
                 }
             }
