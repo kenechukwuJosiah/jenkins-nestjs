@@ -9,9 +9,4 @@ export class AppController {
   getHello() {
     return this.appService.getHello();
   }
-
-  @Get('/test')
-  getRandomQuote() {
-    return this.appService.getTest();
-  }
 }
