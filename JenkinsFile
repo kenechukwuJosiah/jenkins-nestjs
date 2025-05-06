@@ -32,7 +32,7 @@ pipeline {
                     sh "cp package.json ${OUTPUT_DIR}/"
                     sh "cp -r ecosystem.config.js ${OUTPUT_DIR}/"
                     sh "pnpm install --production --prefix ${OUTPUT_DIR}/"
-                    sh "pm2 start ${OUTPUT_DIR}'/ecosystem.config.js --env production"
+                    sh "pm2 start ${OUTPUT_DIR}/ecosystem.config.js --env production"
                     sh "pm2 save"
                 }
             }
