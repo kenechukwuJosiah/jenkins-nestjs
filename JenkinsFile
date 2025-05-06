@@ -27,8 +27,13 @@ pipeline {
         stage('Deploy Apps') {
             steps {
                 script {
-                    sh 'mkdir -p /home/nestjs-app'
-                    sh "cp -r ${BUILD_DIR}/* /home/nestjs-app/"
+                    sh 'mkdir -p ${OUTPUT_DIR}/'
+                    sh "cp -r ${BUILD_DIR}/* ${OUTPUT_DIR}'/"
+                    sh "cp package.json ${OUTPUT_DIR}'/"
+                    sh "cp -r ecosystem.config.js ${OUTPUT_DIR}'/"
+                    sh "pnpm install --production --prefix ${OUTPUT_DIR}'/"
+                    sh "pm2 start ${OUTPUT_DIR}'/ecosystem.config.js --env production"
+                    sh "pm2 save"
                 }
             }
         }
