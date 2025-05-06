@@ -27,7 +27,8 @@ pipeline {
         stage('Deploy Apps') {
             steps {
                 script {
-                    sh "cp -r ${BUILD_DIR}/* ${OUTPUT_DIR}/"
+                    sh 'mkdir -p /home/nestjs-app'
+                    sh "cp -r ${BUILD_DIR}/* /home/nestjs-app/"
                 }
             }
         }
