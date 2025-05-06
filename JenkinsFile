@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-        stage('Copy Files') {
+        stage('Deploy Apps') {
             steps {
                 script {
                     sh "mkdir -p ${OUTPUT_DIR}"
