@@ -3,6 +3,11 @@ module.exports = {
     {
       name: 'nestjs-app',
       script: './main.js',
+      watch: true,
+      ignore_watch: ['node_modules', 'logs'],
+      watch_options: {
+        followSymlinks: false,
+      },
       env: {
         NODE_ENV: 'development',
       },
