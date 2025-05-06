@@ -27,7 +27,6 @@ pipeline {
         stage('Deploy Apps') {
             steps {
                 script {
-                    sh "mkdir -p ${OUTPUT_DIR}"
                     sh "cp -r ${BUILD_DIR}/* ${OUTPUT_DIR}/"
                 }
             }
