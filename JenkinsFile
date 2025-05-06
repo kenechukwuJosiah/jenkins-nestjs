@@ -7,8 +7,7 @@ pipeline {
 
     environment {
         BUILD_DIR = 'dist'
-        APP_NAME = 'nestjs-app'
-        OUTPUT_DIR = '/root/nestjs-jenkins'
+        OUTPUT_DIR = '/home/nestjs-app'
     }
 
     stages {
